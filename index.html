@@ -572,8 +572,7 @@ const aboutData = document.querySelector('.about__data');
    
    
 
-    
-   
+     placeCards.forEach(placeCards=>{
         const placeCardsTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: placeContainer,
@@ -582,11 +581,14 @@ const aboutData = document.querySelector('.about__data');
         scrub: true
       }
     })
+    
+    placeCardsTimeline.fromto(placeCards, {x:-100,opacity:0} ,{x:0,opacity:1});
 
-    placeCardsTimeline.fromto(places1, {x:100,opacity:0} ,{x:0,opacity:1});
-    placeCardsTimeline.fromto(places2, {x:-100,opacity:0} ,{x:0,opacity:1});
-    placeCardsTimeline.fromto(places3, {x:100,opacity:0} ,{x:0,opacity:1});
-    placeCardsTimeline.fromto(places5, {x:-100,opacity:0} ,{x:0,opacity:1});
+     })
+   
+       
+
+    
 
    
 
