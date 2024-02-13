@@ -318,8 +318,8 @@
                     </div>
 
                     <!--==================== PLACES CARD 4 ====================-->
-                    <div class="place__card" >
-                        <img src="images (24).jpeg" alt="" class="place__img" style="display: none;">
+                    <div class="place__card" style="display: none;" >
+                        <img src="images (24).jpeg" alt="" class="place__img" >
                         
                         <div class="place__content">
                             <span class="place__rating">
@@ -518,8 +518,8 @@ const aboutData = document.querySelector('.about__data');
     const videoContainer = document.querySelector('.video__container');
     const placeContainer = document.querySelector('.place__container');
     const placeCards = document.querySelectorAll('.place__card');
-    const subscribeTitle = document.querySelector('.subscribe__title');
-    const subscribeDescription = document.querySelector('.subscribe__description');
+    const subscribeTitle = document.getElementsByClassName('section__title');
+    const subscribeDescription = document.getElementById('place');
     const subscribeInput = document.querySelector('.subscribe__input');
     const subscribeButton = document.querySelector('.subscribe__form button');
     const sponsorImgs = document.querySelectorAll('.sponsor__img'); 
@@ -572,7 +572,7 @@ const aboutData = document.querySelector('.about__data');
    
    
 
-     placeCards.forEach(placeCards=>{
+    
         const placeCardsTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: placeContainer,
@@ -580,12 +580,11 @@ const aboutData = document.querySelector('.about__data');
         end: "bottom 80%",
         scrub: true
       }
-    })
+    });
     
     placeCardsTimeline.fromto(placeCards, {x:-100,opacity:0} ,{x:0,opacity:1});
 
-     })
-   
+     
        
 
     
