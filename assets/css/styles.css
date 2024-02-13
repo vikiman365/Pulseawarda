@@ -408,7 +408,7 @@ input {
 }
 .btn::after{
   content: " sign up to vote";
-  inset: 2px;
+  inset: 5px;
   position: absolute;
   font-size: 1.2em;
   font-family: "Oswald";
@@ -743,32 +743,20 @@ background-color: var(--first-color-alt);
 #place{
   display: flex;
   flex-wrap: wrap;
-  position: relative;
 }
 .place__card{
   width: 200px;
   height: 550PX;
-  position: absolute;
 }
 @media screen and (max-width: 768px) {
-  .home__info{
-    display: none;
-  }
-  .home__img{
-    height: 65vh;
-  }
-  
   #place{
     display: block;
-    position: relative;
   }
   .place__container{
     display: block;
     align-items: center;
     justify-content: center;
     margin-left: 5%;
-    position: absolute;
-   
   }
   .place__card{
     margin-top: 20PX;
@@ -778,17 +766,16 @@ background-color: var(--first-color-alt);
 
 }
 /*=============== PLACES ===============*/
-.place__card {
+.place__card, .place__img {
   height: 100%;
   width: 100%;
-  
 
 }
-.place__img{
-  object-fit: contain
+
+.place__container {
+  grid-template-columns: repeat(2, max-content);
+  justify-content: center;
 }
-
-
 
 .place__card {
   position: relative;
@@ -862,7 +849,6 @@ background-color: var(--first-color-alt);
 }
 
 /*=============== SUBSCRIBE ===============*/
-
 .subscribe__bg {
   background-color: var(--first-color-second);
   padding: 2.5rem 0;

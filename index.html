@@ -348,7 +348,7 @@
             </section>
 
             <!--==================== SUBSCRIBE ====================-->
-            <section class="subscribe section" id="subscribe1">
+            <section class="subscribe section">
                 <div class="subscribe__bg">
                     <div class="subscribe__container container">
                         <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>
@@ -368,7 +368,7 @@
             </section>
             
             <!--==================== SPONSORS ====================-->
-            <section class="sponsor section" id="subscribe2">
+            <section class="sponsor section">
                 <div class="sponsor__container container grid">
                     <div class="sponsor__content">
                         <img src="assets/img/sponsors1.png" alt="" class="sponsor__img">
@@ -479,108 +479,116 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
    </script>
-   <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+   <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script> 
        
-   <script> 
+        <script> 
 
 
 
-    const aboutData = document.querySelector('.about__data');
-        const aboutImgaes = document.querySelector('.about-images');
-        const aboutContainer = document.querySelector('.about__container');
-        const  experienceContent= document.querySelectorAll('.experience__content');
-        const experienceContainer = document.querySelectorAll('.experience__container');
-        const experienceImgs = document.querySelectorAll('.experience__img');
-        const videoDescription = document.querySelector('.video__description');
-        const videoContent = document.querySelector('.video__content');
-        const videoContainer = document.querySelector('.video__container');
-        const placeContainer = document.querySelector('.place__container');
-       
-        const subscribeTitle = document.getElementsByClassName('section__title');
-        const place= document.getElementById('place');
-        const subscribeInput = document.querySelector('.subscribe__input');
-        const subscribeButton = document.querySelector('.subscribe__form button');
-        
-        const places1 =document.getElementById('places1');
-        const places2 =document.getElementById('places2');
-        const places3 =document.getElementById('places3');
-        const places5 =document.getElementById('places5');
-    
-           const places = gsap.utils.toArray('.place__card');
-    
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.defaults({ease: 'none', duration: 3});
-    
-        // About Section Timelines
-        const aboutTitleTimeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: aboutContainer,
-            start: "20% bottom",
-            end: "bottom 80%",
-            scrub: true
-          }
-        });
-        aboutTitleTimeline.from(aboutData, {x: -100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
-        aboutTitleTimeline.from(aboutImgaes, {x: 100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
-    
-        
-        const experienceNumberTimeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: experienceContainer,
-            start: "20% bottom",
-            end: "bottom center",
-            scrub: true
-          }
-        });
-        experienceNumberTimeline.from(experienceContent, {x: -100, opacity: 0, stagger: 0.2}, {x:0, opacity:1});
-        experienceNumberTimeline.from(experienceImgs, {x: 100, opacity: 0, stagger: 0.2}, {x:0, opacity:1});
-    
-        
-        // Video Section Timelines
-        const videoDescriptionTimeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: videoContainer,
-            start: "20% bottom",
-            end: "bottom 80%",
-            scrub: 3
-          }
-        });
-        videoDescriptionTimeline.from(videoDescription, {x: -100,y: 100, opacity: 0}, {x:0,y:0, opacity:1});
-        videoDescriptionTimeline.from(videoContent, {x: 100, opacity: 0}, {x:0, opacity:1});
-    
-       
-       
-    
-        
-    
-         
-           
-    
-        
-    
-       
-    
-        // Subscribe Section Timelines
-       
-        
-    
-            const lenis = new Lenis()
-    
-    lenis.on('scroll', (e) => {
-      console.log(e)
-    })
-    
-    lenis.on('scroll', ScrollTrigger.update)
-    
-    gsap.ticker.add((time)=>{
-      lenis.raf(time * 1000)
-    })
-    
-    gsap.ticker.lagSmoothing(0)
-    </script> 
+const aboutData = document.querySelector('.about__data');
+    const aboutImgaes = document.querySelector('.about-images');
+    const aboutContainer = document.querySelector('.about__container');
+    const  experienceContent= document.querySelectorAll('.experience__content');
+    const experienceContainer = document.querySelectorAll('.experience__container');
+    const experienceImgs = document.querySelectorAll('.experience__img');
+    const videoDescription = document.querySelector('.video__description');
+    const videoContent = document.querySelector('.video__content');
+    const videoContainer = document.querySelector('.video__container');
+    const placeContainer = document.querySelector('.place__container');
    
+    const subscribeTitle = document.getElementsByClassName('section__title');
+    const place= document.getElementById('place');
+    const subscribeInput = document.querySelector('.subscribe__input');
+    const subscribeButton = document.querySelector('.subscribe__form button');
+    
+    const places1 =document.getElementById('places1');
+    const places2 =document.getElementById('places2');
+    const places3 =document.getElementById('places3');
+    const places5 =document.getElementById('places5');
+
+       const places = gsap.utils.toArray('.place__card');
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.defaults({ease: 'none', duration: 3});
+
+    // About Section Timelines
+    const aboutTitleTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: aboutContainer,
+        start: "20% bottom",
+        end: "bottom 80%",
+        scrub: 1,
+        duration: 2, 
+    stagger: 0.2
+      }
+    });
+    aboutTitleTimeline.fromto(aboutData, {x: -100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
+    aboutTitleTimeline.fromto(aboutImgaes, {x: 100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
+
+    
+    const experienceNumberTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: experienceContainer,
+        start: "20% bottom",
+        end: "bottom center",
+        scrub: 1,
+        duration: 2, 
+    stagger: 0.2
+      }
+    });
+    experienceNumberTimeline.fromto(experienceContent, {x: -100,y: 100, opacity: 0, stagger: 0.2}, {x:0,y: 100, opacity:1});
+    experienceNumberTimeline.fromto(experienceImgs, {x: 100,y: 100, opacity: 0, stagger: 0.2}, {x:0,y: 100, opacity:1});
+
+    
+    // Video Section Timelines
+    const videoDescriptionTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: videoContainer,
+        start: "20% bottom",
+        end: "bottom 80%",
+        scrub: 1,
+        duration: 2, 
+    stagger: 0.2
+      }
+    });
+    videoDescriptionTimeline.fromto(videoDescription, {x: -100,y: 100, opacity: 0}, {x:0,y:0, opacity:1});
+    videoDescriptionTimeline.fromto(videoContent, {x: 100,y: 100, opacity: 0}, {x:0,y: 100, opacity:1});
+    
+
+   
+   
+
+    
+
+     
+       
+
+    videoDescriptionTimeline.reverse();
+    aboutTitleTimeline.reverse();
+    experienceNumberTimeline.reverse();
+
+   
+
+    // Subscribe Section Timelines
+   
+    
+
+        const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+lenis.on('scroll', ScrollTrigger.update)
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
+
+gsap.ticker.lagSmoothing(0)
+</script>
         <script>
-                     const placeTimeline = gsap.timeline({
+            const placeTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".place",
     start: "top center",
@@ -595,39 +603,26 @@ placeTimeline.from(".place__title", {
   x: -100, 
   y: 100, // Adjusted to start from bottom left
   opacity: 0, 
- 
+  duration: 2
 });
 
 // Animate the place cards
 const placeCards = document.querySelectorAll(".place__card");
 placeCards.forEach((card, index) => {
-  placeTimeline.fromto(card, { 
+  placeTimeline.from(card, { 
     x: 100, // Start from left side
     y: 100, // Start from bottom
-    
+    opacity: 0, 
+    duration: 2, 
+    stagger: 0.2,
     onComplete: () => {
       console.log(`Card ${index + 1} animation complete`);
     }
-  },{
-    x:0,
-    y:0,
-    opacity:1,
-    opacity: 0, 
-    duration: 2, 
-    stagger: 0.2
   });
 });
 
 // Add reverse animation
 placeTimeline.reverse();
-aboutTimeline.reverse();
-
-// Reverse animations for experience section
-experienceTimeline.reverse();
-
-// Reverse animations for video section
-videoTimeline.reverse();
-
         </script>
         <!--=============== SWIPER JS ===============-->
         <script src="assets/js/swiper-bundle.min.js"></script>
