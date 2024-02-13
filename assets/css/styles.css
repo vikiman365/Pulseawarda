@@ -408,7 +408,7 @@ input {
 }
 .btn::after{
   content: " sign up to vote";
-  inset: 5px;
+  inset: 2px;
   position: absolute;
   font-size: 1.2em;
   font-family: "Oswald";
@@ -449,8 +449,8 @@ background-repeat: no-repeat;
 
 }
 #btn::after{
-  content: " sign up to vote";
-  inset: 5px;
+  content: " sign up";
+  inset: 2px;
   position: absolute;
   font-size: 1.2em;
   font-family: "Oswald";
