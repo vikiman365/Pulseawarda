@@ -509,7 +509,7 @@ const aboutData = document.querySelector('.about__data');
        const places = gsap.utils.toArray('.place__card');
 
     gsap.registerPlugin(ScrollTrigger);
-    gsap.defaults({ease: 'none', duration: 3});
+    gsap.defaults({ease: 'none', duration: 2});
 
     // About Section Timelines
     const aboutTitleTimeline = gsap.timeline({
@@ -536,8 +536,8 @@ const aboutData = document.querySelector('.about__data');
     stagger: 0.2
       }
     });
-    experienceNumberTimeline.fromto(experienceContent, {x: -100,y: 100, opacity: 0, stagger: 0.2}, {x:0,y: 100, opacity:1});
-    experienceNumberTimeline.fromto(experienceImgs, {x: 100,y: 100, opacity: 0, stagger: 0.2}, {x:0,y: 100, opacity:1});
+    experienceNumberTimeline.from(experienceContent, {x: -100,y: 100, opacity: 0}, {x:0,y: 100, opacity:1});
+    experienceNumberTimeline.from(experienceImgs, {x: 100,y: 100, opacity: 0}, {x:0,y: 100, opacity:1});
 
     
     // Video Section Timelines
