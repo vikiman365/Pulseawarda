@@ -495,7 +495,7 @@ const aboutData = document.querySelector('.about__data');
     const videoContent = document.querySelector('.video__content');
     const videoContainer = document.querySelector('.video__container');
     const placeContainer = document.querySelector('.place__container');
-    const placeCards = document.querySelectorAll('.place__card');
+   
     const subscribeTitle = document.getElementsByClassName('section__title');
     const place= document.getElementById('place');
     const subscribeInput = document.querySelector('.subscribe__input');
@@ -520,8 +520,8 @@ const aboutData = document.querySelector('.about__data');
         scrub: true
       }
     });
-    aboutTitleTimeline.from(aboutData, {x: -100, opacity: 0}, {x:0, opacity:1});
-    aboutTitleTimeline.from(aboutImgaes, {x: 100, opacity: 0}, {x:0, opacity:1});
+    aboutTitleTimeline.from(aboutData, {x: -100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
+    aboutTitleTimeline.from(aboutImgaes, {x: 100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
 
     
     const experienceNumberTimeline = gsap.timeline({
@@ -545,23 +545,12 @@ const aboutData = document.querySelector('.about__data');
         scrub: 3
       }
     });
-    videoDescriptionTimeline.from(videoDescription, {x: -100, opacity: 0}, {x:0, opacity:1});
+    videoDescriptionTimeline.from(videoDescription, {x: -100,y: 100, opacity: 0}, {x:0,y:0, opacity:1});
     videoDescriptionTimeline.from(videoContent, {x: 100, opacity: 0}, {x:0, opacity:1});
 
    
    
 
-    
-        const placeCardsTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".place",
-        start: "20% bottom",
-        end: "bottom 80%",
-        scrub: 3
-      }
-    });
-    
-    placeCardsTimeline.fromto(".place__cards", {x:-100,opacity:0} ,{x:0,opacity:1});
     
 
      
@@ -589,7 +578,43 @@ gsap.ticker.add((time)=>{
 
 gsap.ticker.lagSmoothing(0)
 </script>
-        
+        <script>
+            const placeTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".place",
+    start: "top center",
+    end: "bottom center",
+    scrub: 1,
+    markers: true // For debugging purposes
+  }
+});
+
+// Animate the section title
+placeTimeline.from(".place__title", { 
+  x: -100, 
+  y: 100, // Adjusted to start from bottom left
+  opacity: 0, 
+  duration: 2
+});
+
+// Animate the place cards
+const placeCards = document.querySelectorAll(".place__card");
+placeCards.forEach((card, index) => {
+  placeTimeline.from(card, { 
+    x: 100, // Start from left side
+    y: 100, // Start from bottom
+    opacity: 0, 
+    duration: 2, 
+    stagger: 0.2,
+    onComplete: () => {
+      console.log(`Card ${index + 1} animation complete`);
+    }
+  });
+});
+
+// Add reverse animation
+placeTimeline.reverse();
+        </script>
         <!--=============== SWIPER JS ===============-->
         <script src="assets/js/swiper-bundle.min.js"></script>
 
