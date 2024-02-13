@@ -348,7 +348,7 @@
             </section>
 
             <!--==================== SUBSCRIBE ====================-->
-            <section class="subscribe section">
+            <section class="subscribe section" id="subscribe1">
                 <div class="subscribe__bg">
                     <div class="subscribe__container container">
                         <h2 class="section__title subscribe__title">Subscribe Our <br> Newsletter</h2>
@@ -368,7 +368,7 @@
             </section>
             
             <!--==================== SPONSORS ====================-->
-            <section class="sponsor section">
+            <section class="sponsor section" id="subscribe2">
                 <div class="sponsor__container container grid">
                     <div class="sponsor__content">
                         <img src="assets/img/sponsors1.png" alt="" class="sponsor__img">
@@ -488,25 +488,37 @@
     start: "top center",
     end: "bottom center",
     scrub: 1,
-    markers: true // For debugging purposes
+    markers: false // For debugging purposes
   }
 });
 
 // Animate about__data
-aboutTimeline.from(".about__data", { 
+aboutTimeline.fromto(".about__data", { 
   x: -100, 
   y: 100, 
   opacity: 0, 
-  duration: 2
+  
+},{
+    x:0,
+    y:0,
+    opacity:1,
+    duration:2,
+    easy:'none'
 });
 
 // Animate about__img
-aboutTimeline.from(".about__img", { 
+aboutTimeline.fromto(".about__img", { 
   x: 100, 
   y: 100, 
   opacity: 0, 
-  duration: 2
-} ,'<');
+ 
+},{
+    x:0,
+    y:0,
+    opacity:1,
+    duration:2,
+    easy:'none'
+});
 
 // Create timeline for the experience section
 const experienceTimeline = gsap.timeline({
@@ -515,34 +527,50 @@ const experienceTimeline = gsap.timeline({
     start: "top center",
     end: "bottom center",
     scrub: 1,
-    markers: true // For debugging purposes
+    markers: false // For debugging purposes
   }
 });
 
 // Animate section title of experience section
-experienceTimeline.from(".experience .section__title", { 
-  x: -100, 
-  y: 100, 
+experienceTimeline.fromto(".experience .section__title", { 
+  x:-100, 
+   
   opacity: 0, 
-  duration: 2
+ 
+},{
+    x:0,
+    
+    opacity:1,
+    duration:2,
+    easy:'none'
 });
-
 // Animate experience__content
-experienceTimeline.from(".experience__content", { 
-  x: -100, 
-  y: 100, 
+experienceTimeline.fromto(".experience__contnet", { 
+  x:-100, 
+   
   opacity: 0, 
-  duration: 2
+ 
+},{
+    x:0,
+   
+    opacity:1,
+    duration:1,
+    easy:'none'
 });
 
 // Animate experience__img
-experienceTimeline.from(".experience__img", { 
-  x: 100, 
+experienceTimeline.fromto(".experience__img", { 
+  x:100, 
   y: 100, 
   opacity: 0, 
-  duration: 2
+ 
+},{
+    x:0,
+    y:0,
+    opacity:1,
+    duration:2,
+    easy:'none'
 });
-
 // Create timeline for the video section
 const videoTimeline = gsap.timeline({
   scrollTrigger: {
@@ -550,24 +578,37 @@ const videoTimeline = gsap.timeline({
     start: "top center",
     end: "bottom center",
     scrub: 1,
-    markers: true // For debugging purposes
+    markers: false // For debugging purposes
   }
 });
 
 // Animate child item below section__title in video section
-videoTimeline.from(".video .section__title + *", { 
-  x: -100, 
+videoTimeline.fromto(".video .section__title + *", { 
+  x:-100, 
   y: 100, 
   opacity: 0, 
-  duration: 2
+ 
+},{
+    x:0,
+    y:0,
+    opacity:1,
+    duration:2,
+    easy:'none'
 });
+    
 
 // Animate video__description
-videoTimeline.from(".video__description", { 
-  x: -100, 
+videoTimeline.fromto(".video__description", { 
+  x:-100, 
   y: 100, 
   opacity: 0, 
-  duration: 2
+ 
+},{
+    x:0,
+    y:0,
+    opacity:1,
+    duration:2,
+    easy:'none'
 });
             const placeTimeline = gsap.timeline({
   scrollTrigger: {
@@ -584,26 +625,39 @@ placeTimeline.from(".place__title", {
   x: -100, 
   y: 100, // Adjusted to start from bottom left
   opacity: 0, 
-  duration: 2
+ 
 });
 
 // Animate the place cards
 const placeCards = document.querySelectorAll(".place__card");
 placeCards.forEach((card, index) => {
-  placeTimeline.from(card, { 
+  placeTimeline.fromto(card, { 
     x: 100, // Start from left side
     y: 100, // Start from bottom
-    opacity: 0, 
-    duration: 2, 
-    stagger: 0.2,
+    
     onComplete: () => {
       console.log(`Card ${index + 1} animation complete`);
     }
+  },{
+    x:0,
+    y:0,
+    opacity:1,
+    opacity: 0, 
+    duration: 2, 
+    stagger: 0.2
   });
 });
 
 // Add reverse animation
 placeTimeline.reverse();
+aboutTimeline.reverse();
+
+// Reverse animations for experience section
+experienceTimeline.reverse();
+
+// Reverse animations for video section
+videoTimeline.reverse();
+
         </script>
         <!--=============== SWIPER JS ===============-->
         <script src="assets/js/swiper-bundle.min.js"></script>

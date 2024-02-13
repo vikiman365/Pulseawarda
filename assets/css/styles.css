@@ -743,10 +743,12 @@ background-color: var(--first-color-alt);
 #place{
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 .place__card{
   width: 200px;
   height: 550PX;
+  position: absolute;
 }
 @media screen and (max-width: 768px) {
   .home__info{
@@ -755,15 +757,18 @@ background-color: var(--first-color-alt);
   .home__img{
     height: 65vh;
   }
-  .home
+  
   #place{
     display: block;
+    position: relative;
   }
   .place__container{
     display: block;
     align-items: center;
     justify-content: center;
     margin-left: 5%;
+    position: absolute;
+   
   }
   .place__card{
     margin-top: 20PX;
@@ -773,16 +778,17 @@ background-color: var(--first-color-alt);
 
 }
 /*=============== PLACES ===============*/
-.place__card, .place__img {
+.place__card {
   height: 100%;
   width: 100%;
+  
 
 }
-
-.place__container {
-  grid-template-columns: repeat(2, max-content);
-  justify-content: center;
+.place__img{
+  object-fit: contain
 }
+
+
 
 .place__card {
   position: relative;
@@ -856,6 +862,12 @@ background-color: var(--first-color-alt);
 }
 
 /*=============== SUBSCRIBE ===============*/
+#subscribe1{
+  position: relative;
+}
+#subscribe2{
+  position:relative;
+}
 .subscribe__bg {
   background-color: var(--first-color-second);
   padding: 2.5rem 0;
