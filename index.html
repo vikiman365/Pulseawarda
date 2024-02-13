@@ -534,6 +534,7 @@ placeCards.forEach((card, index) => {
             y: 100, 
             opacity: 0, 
             duration: 2,
+            stagger: 0.2,
             onComplete: () => {
               document.querySelector(".about__data").style.opacity = 1;
               document.querySelector(".about__data").style.transform = "translate(0px, 0px)";
@@ -546,6 +547,7 @@ placeCards.forEach((card, index) => {
             y: 100, 
             opacity: 0, 
             duration: 2,
+            stagger: 0.2,
             onComplete: () => {
               document.querySelector(".about__img").style.opacity = 1;
               document.querySelector(".about__img").style.transform = "translate(0px, 0px)";
@@ -569,6 +571,7 @@ placeCards.forEach((card, index) => {
             y: 100, 
             opacity: 0, 
             duration: 2,
+            stagger: 0.2,
             onComplete: () => {
               document.querySelector(".experience .section__title").style.opacity = 1;
               document.querySelector(".experience .section__title").style.transform = "translate(0px, 0px)";
@@ -581,6 +584,7 @@ placeCards.forEach((card, index) => {
             y: 100, 
             opacity: 0, 
             duration: 2,
+            stagger: 0.2,
             onComplete: () => {
               document.querySelector(".experience__content").style.opacity = 1;
               document.querySelector(".experience__content").style.transform = "translate(0px, 0px)";
@@ -593,6 +597,7 @@ placeCards.forEach((card, index) => {
             y: 100, 
             opacity: 0, 
             duration: 2,
+            stagger: 0.2,
             onComplete: () => {
               document.querySelector(".experience__img").style.opacity = 1;
               document.querySelector(".experience__img").style.transform = "translate(0px, 0px)";
@@ -616,6 +621,8 @@ placeCards.forEach((card, index) => {
             y: 100, 
             opacity: 0, 
             duration: 2,
+            stagger: 0.2,
+            
             onComplete: () => {
               document.querySelector(".video .section__title + *").style.opacity = 1;
               document.querySelector(".video .section__title + *").style.transform = "translate(0px, 0px)";
@@ -624,10 +631,22 @@ placeCards.forEach((card, index) => {
           
           // Animate video__description
           videoTimeline.from(".video__description", { 
+            x: -100, 
+            y: 100, 
+            opacity: 0, 
+            duration: 2,
+            stagger: 0.2,
+            onComplete: () => {
+              document.querySelector(".video__description").style.opacity = 1;
+              document.querySelector(".video__description").style.transform = "translate(0px, 0px)";
+            }
+          });
+          videoTimeline.from(".video__cont", { 
             x: 100, 
             y: 100, 
             opacity: 0, 
             duration: 2,
+            stagger: 0.2,
             onComplete: () => {
               document.querySelector(".video__description").style.opacity = 1;
               document.querySelector(".video__description").style.transform = "translate(0px, 0px)";
