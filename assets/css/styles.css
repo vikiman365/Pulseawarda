@@ -408,7 +408,7 @@ input {
 }
 .btn::after{
   content: " sign up to vote";
-  inset: 5px;
+  inset: 2px;
   position: absolute;
   font-size: 1.2em;
   font-family: "Oswald";
@@ -749,6 +749,13 @@ background-color: var(--first-color-alt);
   height: 550PX;
 }
 @media screen and (max-width: 768px) {
+  .home__info{
+    display: none;
+  }
+  .home__img{
+    height: 65vh;
+  }
+  .home
   #place{
     display: block;
   }
