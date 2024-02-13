@@ -500,12 +500,13 @@ const aboutData = document.querySelector('.about__data');
     const place= document.getElementById('place');
     const subscribeInput = document.querySelector('.subscribe__input');
     const subscribeButton = document.querySelector('.subscribe__form button');
-   
+    
     const places1 =document.getElementById('places1');
     const places2 =document.getElementById('places2');
     const places3 =document.getElementById('places3');
     const places5 =document.getElementById('places5');
 
+       const places = gsap.utils.toArray('.place__card');
 
     gsap.registerPlugin(ScrollTrigger);
     gsap.defaults({ease: 'none', duration: 3});
@@ -527,7 +528,7 @@ const aboutData = document.querySelector('.about__data');
       scrollTrigger: {
         trigger: experienceContainer,
         start: "20% bottom",
-        end: "bottom 80%",
+        end: "bottom center",
         scrub: true
       }
     });
@@ -541,7 +542,7 @@ const aboutData = document.querySelector('.about__data');
         trigger: videoContainer,
         start: "20% bottom",
         end: "bottom 80%",
-        scrub: true
+        scrub: 3
       }
     });
     videoDescriptionTimeline.from(videoDescription, {x: -100, opacity: 0}, {x:0, opacity:1});
@@ -556,14 +557,12 @@ const aboutData = document.querySelector('.about__data');
         trigger: place,
         start: "20% bottom",
         end: "bottom 80%",
-        scrub: true
+        scrub: 3
       }
     });
     
-    placeCardsTimeline.fromto(places1, {x:-100,opacity:0} ,{x:0,opacity:1});
-    placeCardsTimeline.fromto(places2, {x:100,opacity:0} ,{x:0,opacity:1});
-    placeCardsTimeline.fromto(places3, {x:-100,opacity:0} ,{x:0,opacity:1});
-    placeCardsTimeline.fromto(places5, {x:100,opacity:0} ,{x:0,opacity:1});
+    placeCardsTimeline.fromto(places, {x:-100,opacity:0} ,{x:0,opacity:1});
+    
 
      
        
