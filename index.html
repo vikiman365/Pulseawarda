@@ -472,7 +472,7 @@
         
                
          <!--========== SCROLL UP ==========-->
-        <a href="#" class="scrollup" id="scroll-up">
+        <a href="#" class="scrollup down" id="scroll-up">
             <i class="ri-arrow-up-line scrollup__icon"></i>
         </a>
    <script src="assets/js/updates.js"></script>
@@ -503,7 +503,7 @@ placeTimeline.from(".place__title", {
 const placeCards = document.querySelectorAll(".place__card");
 placeCards.forEach((card, index) => {
   placeTimeline.from(card, { 
-    x: -100, // Start from left side
+    x: 100, // Start from left side
     y: 100, // Start from bottom
     opacity: 0, 
     duration: 2, 
@@ -580,7 +580,7 @@ placeCards.forEach((card, index) => {
           
           // Animate experience__content
           experienceTimeline.from(".experience__content", { 
-            x: -100, 
+            x: 100, 
             y: 100, 
             opacity: 0, 
             duration: 2,
