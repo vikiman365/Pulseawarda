@@ -479,138 +479,108 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
    </script>
-   <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script> 
+   <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+       
+   <script> 
+
+
+
+    const aboutData = document.querySelector('.about__data');
+        const aboutImgaes = document.querySelector('.about-images');
+        const aboutContainer = document.querySelector('.about__container');
+        const  experienceContent= document.querySelectorAll('.experience__content');
+        const experienceContainer = document.querySelectorAll('.experience__container');
+        const experienceImgs = document.querySelectorAll('.experience__img');
+        const videoDescription = document.querySelector('.video__description');
+        const videoContent = document.querySelector('.video__content');
+        const videoContainer = document.querySelector('.video__container');
+        const placeContainer = document.querySelector('.place__container');
+       
+        const subscribeTitle = document.getElementsByClassName('section__title');
+        const place= document.getElementById('place');
+        const subscribeInput = document.querySelector('.subscribe__input');
+        const subscribeButton = document.querySelector('.subscribe__form button');
+        
+        const places1 =document.getElementById('places1');
+        const places2 =document.getElementById('places2');
+        const places3 =document.getElementById('places3');
+        const places5 =document.getElementById('places5');
+    
+           const places = gsap.utils.toArray('.place__card');
+    
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.defaults({ease: 'none', duration: 3});
+    
+        // About Section Timelines
+        const aboutTitleTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: aboutContainer,
+            start: "20% bottom",
+            end: "bottom 80%",
+            scrub: true
+          }
+        });
+        aboutTitleTimeline.from(aboutData, {x: -100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
+        aboutTitleTimeline.from(aboutImgaes, {x: 100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
+    
+        
+        const experienceNumberTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: experienceContainer,
+            start: "20% bottom",
+            end: "bottom center",
+            scrub: true
+          }
+        });
+        experienceNumberTimeline.from(experienceContent, {x: -100, opacity: 0, stagger: 0.2}, {x:0, opacity:1});
+        experienceNumberTimeline.from(experienceImgs, {x: 100, opacity: 0, stagger: 0.2}, {x:0, opacity:1});
+    
+        
+        // Video Section Timelines
+        const videoDescriptionTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: videoContainer,
+            start: "20% bottom",
+            end: "bottom 80%",
+            scrub: 3
+          }
+        });
+        videoDescriptionTimeline.from(videoDescription, {x: -100,y: 100, opacity: 0}, {x:0,y:0, opacity:1});
+        videoDescriptionTimeline.from(videoContent, {x: 100, opacity: 0}, {x:0, opacity:1});
+    
+       
+       
+    
+        
+    
+         
+           
+    
+        
+    
+       
+    
+        // Subscribe Section Timelines
+       
+        
+    
+            const lenis = new Lenis()
+    
+    lenis.on('scroll', (e) => {
+      console.log(e)
+    })
+    
+    lenis.on('scroll', ScrollTrigger.update)
+    
+    gsap.ticker.add((time)=>{
+      lenis.raf(time * 1000)
+    })
+    
+    gsap.ticker.lagSmoothing(0)
+    </script> 
    
         <script>
-            const aboutTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".about",
-    start: "top center",
-    end: "bottom center",
-    scrub: 1,
-    markers: false // For debugging purposes
-  }
-});
-
-// Animate about__data
-aboutTimeline.fromto(".about__data", { 
-  x: -100, 
-  y: 100, 
-  opacity: 0, 
-  
-},{
-    x:0,
-    y:0,
-    opacity:1,
-    duration:2,
-    easy:'none'
-});
-
-// Animate about__img
-aboutTimeline.fromto(".about__img", { 
-  x: 100, 
-  y: 100, 
-  opacity: 0, 
- 
-},{
-    x:0,
-    y:0,
-    opacity:1,
-    duration:2,
-    easy:'none'
-});
-
-// Create timeline for the experience section
-const experienceTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".experience",
-    start: "top center",
-    end: "bottom center",
-    scrub: 1,
-    markers: false // For debugging purposes
-  }
-});
-
-// Animate section title of experience section
-experienceTimeline.fromto(".experience .section__title", { 
-  x:-100, 
-   
-  opacity: 0, 
- 
-},{
-    x:0,
-    
-    opacity:1,
-    duration:2,
-    easy:'none'
-});
-// Animate experience__content
-experienceTimeline.fromto(".experience__contnet", { 
-  x:-100, 
-   
-  opacity: 0, 
- 
-},{
-    x:0,
-   
-    opacity:1,
-    duration:1,
-    easy:'none'
-});
-
-// Animate experience__img
-experienceTimeline.fromto(".experience__img", { 
-  x:100, 
-  y: 100, 
-  opacity: 0, 
- 
-},{
-    x:0,
-    y:0,
-    opacity:1,
-    duration:2,
-    easy:'none'
-});
-// Create timeline for the video section
-const videoTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".video",
-    start: "top center",
-    end: "bottom center",
-    scrub: 1,
-    markers: false // For debugging purposes
-  }
-});
-
-// Animate child item below section__title in video section
-videoTimeline.fromto(".video .section__title + *", { 
-  x:-100, 
-  y: 100, 
-  opacity: 0, 
- 
-},{
-    x:0,
-    y:0,
-    opacity:1,
-    duration:2,
-    easy:'none'
-});
-    
-
-// Animate video__description
-videoTimeline.fromto(".video__description", { 
-  x:-100, 
-  y: 100, 
-  opacity: 0, 
- 
-},{
-    x:0,
-    y:0,
-    opacity:1,
-    duration:2,
-    easy:'none'
-});
-            const placeTimeline = gsap.timeline({
+                     const placeTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".place",
     start: "top center",

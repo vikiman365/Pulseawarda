@@ -862,12 +862,7 @@ background-color: var(--first-color-alt);
 }
 
 /*=============== SUBSCRIBE ===============*/
-#subscribe1{
-  position: relative;
-}
-#subscribe2{
-  position:relative;
-}
+
 .subscribe__bg {
   background-color: var(--first-color-second);
   padding: 2.5rem 0;
