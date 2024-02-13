@@ -103,7 +103,7 @@
 
             <!--==================== ABOUT ====================-->
             <section class="about section scroll-trigger" id="about">
-                <div class="about__container container grid scroll-trigger">
+                <div class="about__container container grid">
                     <div class="about__data scroll-trigger">
                         <h2 class="section__title about__title scroll-trigger">ABOUT PULSE <br> INFLUENCER AWARDS</h2>
                         <p class="about__description scroll-trigger">
@@ -111,7 +111,7 @@
                         </p>
                         <a href="#"  class="btn blow scroll-trigger"> <span>SIGN UP to vote</span></a>
                     </div>
-
+                       <div class="about-images">
                     <div class="about__img scroll-trigger">
                         <div class="about__img-overlay scroll-trigger">
                             <img src="./images10.jpeg" alt="" class="about__img-one scroll-trigger">
@@ -120,6 +120,7 @@
                         <div class="about__img-overlay scroll-trigger">
                             <img src="./images.png" alt="" class="about__img-two scroll-trigger">
                         </div>
+                    </div>
                     </div>
                 </div>
             </section>
@@ -503,190 +504,54 @@
    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script> 
        
         <script> 
-            const smoothScroll = new LenisSmoothScroll();
-            gsap.registerPlugin(ScrollTrigger);
-    gsap.defaults({ease: 'none', duration: 2});
+               const about=document.querySelector('.about')
+               const aboutData =document.querySelector('.about__data')
+               const aboutImages =document.querySelector('.about-images')
+               const placeContainer =document.querySelector('.place__container') 
+                const places = document.querySelectorAll('place__card')
+                const tl =gsap.timeline({
+                    ScrollTrigger:{
+                        trigger:placeContainer,
+                        Start:'top bottom',
+                        end:'bottom 90%',
+                        scrub:true,
+                        markers:true
 
-    // About Section Timelines
-    const aboutTitleTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".about",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    aboutTitleTimeline.from(".about__title", {x: -100, opacity: 0});
-
-    const aboutDescriptionTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".about",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    aboutDescriptionTimeline.from(".about__description", {x: 100, opacity: 0});
-
-    const aboutButtonTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".about",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    aboutButtonTimeline.from(".button", {y: 50, opacity: 0});
-
-    // Discover Section Timelines
-    const discoverTitleTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".discover",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    discoverTitleTimeline.from(".discover__title", {x: -100, opacity: 0});
-
-    const discoverCardsTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".discover",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    discoverCardsTimeline.from(".discover__card:nth-child(even)", {x: -100, opacity: 0, stagger: 0.2});
-    discoverCardsTimeline.from(".discover__card:nth-child(odd)", {x: 100, opacity: 0, stagger: 0.2});
-
-    // Experience Section Timelines
-    const experienceNumberTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".experience",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    experienceNumberTimeline.from(".experience__number", {y: 50, opacity: 0, stagger: 0.2});
-
-    const experienceImgTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".experience",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    experienceImgTimeline.from(".experience__img-overlay:nth-child(even) img", {scale: 1.5, opacity: 0});
-    experienceImgTimeline.from(".experience__img-overlay:nth-child(odd) img", {scale: 1.5, opacity: 0});
-
-    // Video Section Timelines
-    const videoDescriptionTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".video",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    videoDescriptionTimeline.from(".video__description", {y: 100, opacity: 0});
-
-    const videoContentTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".video",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    videoContentTimeline.from(".video__content img", {scale: 1.5, opacity: 0});
-
-    const videoButtonTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".video",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    videoButtonTimeline.from(".video__button", {y: 50, opacity: 0});
-
-    // Place Section Timelines
-    const placeTitleTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".place",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    placeTitleTimeline.from(".place__title", {y: 100, opacity: 0});
-
-    const placeCardsTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".place",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    placeCardsTimeline.from(".place__card:nth-child(even)", {y: 100, opacity: 0, stagger: 0.2});
-    placeCardsTimeline.from(".place__card:nth-child(odd)", {y: -100, opacity: 0, stagger: 0.2});
-
-    // Subscribe Section Timelines
-    const subscribeTitleTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".subscribe",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    subscribeTitleTimeline.from(".subscribe__title", {y: 100, opacity: 0});
-
-    const subscribeDescriptionTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".subscribe",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    subscribeDescriptionTimeline.from(".subscribe__description", {y: 100, opacity: 0});
-
-    const subscribeInputTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".subscribe",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    subscribeInputTimeline.from(".subscribe__input", {y: 50, opacity: 0});
-
-    const subscribeButtonTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".subscribe",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    subscribeButtonTimeline.from(".subscribe__form button", {y: 50, opacity: 0});
-
-    // Sponsor Section Timelines
-    const sponsorImgTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".sponsor",
-        start: "top center",
-        end: "bottom center",
-        scrub: 1
-      }
-    });
-    sponsorImgTimeline.from(".sponsor__img:nth-child(even)", {y: 100, opacity: 0, stagger: 0.2});
-    sponsorImgTimeline.from(".sponsor__img:nth-child(odd)", {y: -100, opacity: 0, stagger: 0.2});
+                    }
+                })
+                tl.fromTo(plaes,{xPercent:-100,opacity:0},{xPercent:0,opacity:1},'<')
+               gsap.set(aboutData,{
+                xPercent:-100,
+                opacity:0
+               })
+               gsap.set(aboutImages,{
+                xPercent:100,
+                opacity:0
+               })
+             gsap.to(aboutData,{
+                ScrollTrigger:{
+                    trigger:about,
+                    Start:'20% center',
+                    end:'bottom 90%',
+                    markers:true,
+                   scrub:true
+                },
+                xPercent:0,
+                opacity:1
+             })
+             gsap.to(aboutImages,{
+                ScrollTrigger:{
+                    trigger:about,
+                    Start:'20% center',
+                    end:'bottom 90%',
+                    markers:true,
+                   scrub:true
+                },
+                xPercent:0,
+                opacity:1
+             })
+           
+           
    const lenis = new Lenis()
 
               lenis.on('scroll', ScrollTrigger.update)

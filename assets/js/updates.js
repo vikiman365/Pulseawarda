@@ -64,28 +64,3 @@ function continuousUpdate() {
 
 // Start continuous updates
 continuousUpdate();
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
-
-  // Function to add 'animate' class to elements in viewport
-  function animateOnScroll() {
-    const scrollTriggerElements = document.querySelectorAll('.scroll-trigger');
-    scrollTriggerElements.forEach(element => {
-      if (isInViewport(element)) {
-        element.classList.add('animate');
-      }
-    });
-  }
-
-  // Add event listener for scroll to trigger animations
-  window.addEventListener('scroll', animateOnScroll);
-
-  // Trigger animations on page load
-  animateOnScroll();
