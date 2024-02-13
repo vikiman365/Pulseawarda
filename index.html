@@ -481,7 +481,44 @@
    </script>
    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script> 
        
-        <script> const aboutTimeline = gsap.timeline({
+        <script> 
+        const placeTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".place",
+    start: "top center",
+    end: "bottom center",
+    scrub: 1
+  }
+});
+
+// Animate the section title
+placeTimeline.from(".place__title", { 
+  x: -100, 
+  y: 100, // Adjusted to start from bottom left
+  opacity: 0, 
+  duration: 2
+});
+
+// Animate the place cards
+const placeCards = document.querySelectorAll(".place__card");
+placeCards.forEach((card, index) => {
+  placeTimeline.from(card, { 
+    x: -100, // Start from left side
+    y: 100, // Start from bottom
+    opacity: 0, 
+    duration: 2, 
+    stagger: 0.2,
+    onComplete: () => {
+      console.log(`Card ${index + 1} animation complete`);
+      // Set final CSS styles using JavaScript
+      card.style.opacity = 1; // For opacity
+      card.style.transform = "translate(0px, 0px)"; // For position
+      // Add any other final styles as needed
+    }
+  });
+});
+
+        const aboutTimeline = gsap.timeline({
             scrollTrigger: {
               trigger: ".about",
               start: "top center",
