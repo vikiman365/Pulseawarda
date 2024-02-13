@@ -531,9 +531,9 @@ const aboutData = document.querySelector('.about__data');
     // About Section Timelines
     const aboutTitleTimeline = gsap.timeline({
       scrollTrigger: {
-        trigger: "aboutContainer",
-        start: "top center",
-        end: "bottom center",
+        trigger: aboutContainer,
+        start: "20% bottom",
+        end: "bottom 80%",
         scrub: true
       }
     });
@@ -544,8 +544,8 @@ const aboutData = document.querySelector('.about__data');
     const experienceNumberTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: experienceContainer,
-        start: "top center",
-        end: "bottom center",
+        start: "20% bottom",
+        end: "bottom 80%",
         scrub: true
       }
     });
@@ -557,8 +557,8 @@ const aboutData = document.querySelector('.about__data');
     const videoDescriptionTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: videoContainer,
-        start: "top center",
-        end: "bottom center",
+        start: "20% bottom",
+        end: "bottom 80%",
         scrub: true
       }
     });
@@ -573,11 +573,11 @@ const aboutData = document.querySelector('.about__data');
         const placeCardsTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: placeContainer,
-        start: "top center",
-        end: "bottom center",
+        start: "20% bottom",
+        end: "bottom 80%",
         scrub: true
       }
-    });
+    })
 
     placeCardsTimeline.fromto(placeCards, {x:100,opacity:0} ,{x:0,opacity:1});
 
