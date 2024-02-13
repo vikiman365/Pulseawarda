@@ -481,94 +481,124 @@
    </script>
    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script> 
        
-        <script> 
-
-
-
-const aboutData = document.querySelector('.about__data');
-    const aboutImgaes = document.querySelector('.about-images');
-    const aboutContainer = document.querySelector('.about__container');
-    const  experienceContent= document.querySelectorAll('.experience__content');
-    const experienceContainer = document.querySelectorAll('.experience__container');
-    const experienceImgs = document.querySelectorAll('.experience__img');
-    const videoDescription = document.querySelector('.video__description');
-    const videoContent = document.querySelector('.video__content');
-    const videoContainer = document.querySelector('.video__container');
-    const placeContainer = document.querySelector('.place__container');
+        <script> const aboutTimeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".about",
+              start: "top center",
+              end: "bottom center",
+              scrub: 1,
+              markers: false // Removed markers for debugging
+            }
+          });
+          
+          // Animate about__data
+          aboutTimeline.from(".about__data", { 
+            x: -100, 
+            y: 100, 
+            opacity: 0, 
+            duration: 2,
+            onComplete: () => {
+              document.querySelector(".about__data").style.opacity = 1;
+              document.querySelector(".about__data").style.transform = "translate(0px, 0px)";
+            }
+          });
+          
+          // Animate about__img
+          aboutTimeline.from(".about__img", { 
+            x: 100, 
+            y: 100, 
+            opacity: 0, 
+            duration: 2,
+            onComplete: () => {
+              document.querySelector(".about__img").style.opacity = 1;
+              document.querySelector(".about__img").style.transform = "translate(0px, 0px)";
+            }
+          });
+          
+          // Create timeline for the experience section
+          const experienceTimeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".experience",
+              start: "top center",
+              end: "bottom center",
+              scrub: 1,
+              markers: false // Removed markers for debugging
+            }
+          });
+          
+          // Animate section title of experience section
+          experienceTimeline.from(".experience .section__title", { 
+            x: -100, 
+            y: 100, 
+            opacity: 0, 
+            duration: 2,
+            onComplete: () => {
+              document.querySelector(".experience .section__title").style.opacity = 1;
+              document.querySelector(".experience .section__title").style.transform = "translate(0px, 0px)";
+            }
+          });
+          
+          // Animate experience__content
+          experienceTimeline.from(".experience__content", { 
+            x: -100, 
+            y: 100, 
+            opacity: 0, 
+            duration: 2,
+            onComplete: () => {
+              document.querySelector(".experience__content").style.opacity = 1;
+              document.querySelector(".experience__content").style.transform = "translate(0px, 0px)";
+            }
+          });
+          
+          // Animate experience__img
+          experienceTimeline.from(".experience__img", { 
+            x: 100, 
+            y: 100, 
+            opacity: 0, 
+            duration: 2,
+            onComplete: () => {
+              document.querySelector(".experience__img").style.opacity = 1;
+              document.querySelector(".experience__img").style.transform = "translate(0px, 0px)";
+            }
+          });
+          
+          // Create timeline for the video section
+          const videoTimeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".video",
+              start: "top center",
+              end: "bottom center",
+              scrub: 1,
+              markers: false // Removed markers for debugging
+            }
+          });
+          
+          // Animate child item below section__title in video section
+          videoTimeline.from(".video .section__title + *", { 
+            x: -100, 
+            y: 100, 
+            opacity: 0, 
+            duration: 2,
+            onComplete: () => {
+              document.querySelector(".video .section__title + *").style.opacity = 1;
+              document.querySelector(".video .section__title + *").style.transform = "translate(0px, 0px)";
+            }
+          });
+          
+          // Animate video__description
+          videoTimeline.from(".video__description", { 
+            x: 100, 
+            y: 100, 
+            opacity: 0, 
+            duration: 2,
+            onComplete: () => {
+              document.querySelector(".video__description").style.opacity = 1;
+              document.querySelector(".video__description").style.transform = "translate(0px, 0px)";
+            }
+          });
    
-    const subscribeTitle = document.getElementsByClassName('section__title');
-    const place= document.getElementById('place');
-    const subscribeInput = document.querySelector('.subscribe__input');
-    const subscribeButton = document.querySelector('.subscribe__form button');
-    
-    const places1 =document.getElementById('places1');
-    const places2 =document.getElementById('places2');
-    const places3 =document.getElementById('places3');
-    const places5 =document.getElementById('places5');
 
-       const places = gsap.utils.toArray('.place__card');
-
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.defaults({ease: 'none', duration: 2});
-
-    // About Section Timelines
-    const aboutTitleTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: aboutContainer,
-        start: "20% bottom",
-        end: "bottom 80%",
-        scrub: 1,
-        duration: 2, 
-    stagger: 0.2
-      }
-    });
-    aboutTitleTimeline.fromto(aboutData, {x: -100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
-    aboutTitleTimeline.fromto(aboutImgaes, {x: 100,y:100, opacity: 0}, {x:0,y:0, opacity:1});
-
-    
-    const experienceNumberTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: experienceContainer,
-        start: "20% bottom",
-        end: "bottom center",
-        scrub: 1,
-        duration: 2, 
-    stagger: 0.2
-      }
-    });
-    experienceNumberTimeline.from(experienceContent, {x: -100,y: 100, opacity: 0}, {x:0,y: 100, opacity:1});
-    experienceNumberTimeline.from(experienceImgs, {x: 100,y: 100, opacity: 0}, {x:0,y: 100, opacity:1});
-
-    
-    // Video Section Timelines
-    const videoDescriptionTimeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: videoContainer,
-        start: "20% bottom",
-        end: "bottom 80%",
-        scrub: 1,
-        duration: 2, 
-    stagger: 0.2
-      }
-    });
-    videoDescriptionTimeline.fromto(videoDescription, {x: -100,y: 100, opacity: 0}, {x:0,y:0, opacity:1});
-    videoDescriptionTimeline.fromto(videoContent, {x: 100,y: 100, opacity: 0}, {x:0,y: 100, opacity:1});
-    
-
-   
-   
-
-    
-
-     
-       
-
-    videoDescriptionTimeline.reverse();
-    aboutTitleTimeline.reverse();
-    experienceNumberTimeline.reverse();
-
-   
-
+          
     // Subscribe Section Timelines
    
     
@@ -587,43 +617,8 @@ gsap.ticker.add((time)=>{
 
 gsap.ticker.lagSmoothing(0)
 </script>
-        <script>
-            const placeTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".place",
-    start: "top center",
-    end: "bottom center",
-    scrub: 1,
-    markers: true // For debugging purposes
-  }
-});
+       
 
-// Animate the section title
-placeTimeline.from(".place__title", { 
-  x: -100, 
-  y: 100, // Adjusted to start from bottom left
-  opacity: 0, 
-  duration: 2
-});
-
-// Animate the place cards
-const placeCards = document.querySelectorAll(".place__card");
-placeCards.forEach((card, index) => {
-  placeTimeline.from(card, { 
-    x: 100, // Start from left side
-    y: 100, // Start from bottom
-    opacity: 0, 
-    duration: 2, 
-    stagger: 0.2,
-    onComplete: () => {
-      console.log(`Card ${index + 1} animation complete`);
-    }
-  });
-});
-
-// Add reverse animation
-placeTimeline.reverse();
-        </script>
         <!--=============== SWIPER JS ===============-->
         <script src="assets/js/swiper-bundle.min.js"></script>
 
