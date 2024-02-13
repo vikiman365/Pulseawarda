@@ -172,7 +172,7 @@
 
             <!--==================== EXPERIENCE ====================-->
             <section class="experience section">
-                <h2 class="section__title">With Our <br >Experience </h2>
+                <h2 class="section__title">With Our <br > </h2>
 
                 <div class="experience__container container grid">
                     <div class="experience__content grid">
@@ -504,88 +504,102 @@
    <script src="https://unpkg.com/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script> 
        
         <script> 
-                function animateElements() {
-    const aboutTitle = document.querySelector('.about__title');
-    const aboutDescription = document.querySelector('.about__description');
-    const aboutButton = document.querySelector('.button');
-    const discoverTitle = document.querySelector('.discover__title');
-    const discoverCards = document.querySelectorAll('.discover__card');
-    const experienceNumbers = document.querySelectorAll('.experience__number');
-    const experienceImgs = document.querySelectorAll('.experience__img-overlay img');
+
+
+
+const aboutData = document.querySelector('.about__data');
+    const aboutImgaes = document.querySelector('.about-images');
+    const aboutContainer = document.querySelector('.about__container');
+    const  experienceContent= document.querySelectorAll('.experience__content');
+    const experienceContainer = document.querySelectorAll('.experience__container');
+    const experienceImgs = document.querySelectorAll('.experience__img');
     const videoDescription = document.querySelector('.video__description');
-    const videoContentImg = document.querySelector('.video__content img');
-    const videoButton = document.querySelector('.video__button');
-    const placeTitle = document.querySelector('.place__title');
+    const videoContent = document.querySelector('.video__content');
+    const videoContainer = document.querySelector('.video__container');
+    const placeContainer = document.querySelector('place__container');
     const placeCards = document.querySelectorAll('.place__card');
     const subscribeTitle = document.querySelector('.subscribe__title');
     const subscribeDescription = document.querySelector('.subscribe__description');
     const subscribeInput = document.querySelector('.subscribe__input');
     const subscribeButton = document.querySelector('.subscribe__form button');
-    const sponsorImgs = document.querySelectorAll('.sponsor__img');
+    const sponsorImgs = document.querySelectorAll('.sponsor__img'); 
 
-    // About Section animations
-    if (isInViewport('.about')) {
-      gsap.fromTo(aboutTitle, { x: -100, opacity: 0 }, { x: 0, opacity: 1, duration: 2, ease: 'none' });
-      gsap.fromTo(aboutDescription, { x: 100, opacity: 0 }, { x: 0, opacity: 1, duration: 2, ease: 'none' });
-      gsap.fromTo(aboutButton, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none' });
-    }
 
-    // Discover Section animations
-    if (isInViewport('.discover')) {
-      gsap.fromTo(discoverTitle, { x: -100, opacity: 0 }, { x: 0, opacity: 1, duration: 2, ease: 'none' });
-      gsap.fromTo(discoverCards, { x: -100, opacity: 0 }, { x: 0, opacity: 1, duration: 2, ease: 'none', stagger: 0.2 });
-    }
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.defaults({ease: 'none', duration: 1});
 
-    // Experience Section animations
-    if (isInViewport('.experience')) {
-      gsap.fromTo(experienceNumbers, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none', stagger: 0.2 });
-      gsap.fromTo(experienceImgs, { scale: 1.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 2, ease: 'none', stagger: 0.2 });
-    }
+    // About Section Timelines
+    const aboutTitleTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: "aboutContainer",
+        start: "top center",
+        end: "bottom center",
+        scrub: true
+      }
+    });
+    aboutTitleTimeline.from(aboutData, {x: -100, opacity: 0}, {x:0, opacity:1});
+    aboutTitleTimeline.from(aboutImgaes, {x: 100, opacity: 0}, {x:0, opacity:1});
 
-    // Video Section animations
-    if (isInViewport('.video')) {
-      gsap.fromTo(videoDescription, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none' });
-      gsap.fromTo(videoContentImg, { scale: 1.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 2, ease: 'none' });
-      gsap.fromTo(videoButton, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none' });
-    }
+    
+    const experienceNumberTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: experienceContainer,
+        start: "top center",
+        end: "bottom center",
+        scrub: true
+      }
+    });
+    experienceNumberTimeline.from(experienceContent, {x: -100, opacity: 0, stagger: 0.2}, {x:0, opacity:1});
+    experienceNumberTimeline.from(experienceImgs, {x: 100, opacity: 0, stagger: 0.2}, {x:0, opacity:1});
 
-    // Place Section animations
-    if (isInViewport('.place')) {
-      gsap.fromTo(placeTitle, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none' });
-      gsap.fromTo(placeCards, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none', stagger: 0.2 });
-    }
+    
+    // Video Section Timelines
+    const videoDescriptionTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: videoContainer,
+        start: "top center",
+        end: "bottom center",
+        scrub: true
+      }
+    });
+    videoDescriptionTimeline.from(videoDescription, {x: -100, opacity: 0}, {x:0, opacity:1});
+    videoDescriptionTimeline.from(videoContent, {x: 100, opacity: 0}, {x:0, opacity:1});
 
-    // Subscribe Section animations
-    if (isInViewport('.subscribe')) {
-      gsap.fromTo(subscribeTitle, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none' });
-      gsap.fromTo(subscribeDescription, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none' });
-      gsap.fromTo(subscribeInput, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none' });
-      gsap.fromTo(subscribeButton, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none' });
-    }
+   
+   
 
-    // Sponsor Section animations
-    if (isInViewport('.sponsor')) {
-      gsap.fromTo(sponsorImgs, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 2, ease: 'none', stagger: 0.2 });
-    }
-  }
+    
+    placeCards.forEach(placeCards=>{
+        const placeCardsTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: placeContainer,
+        start: "top center",
+        end: "bottom center",
+        scrub: true
+      }
+    });
 
-  // Function to check if an element is in the viewport
-  function isInViewport(selector) {
-    const element = document.querySelector(selector);
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-  }
+    placeCardsTimeline.fromto(placeCards, {x:100,opacity:0} ,{x:0,opacity:1});
 
-  // Event listener for scroll event
-  window.addEventListener('scroll', animateElements);
+    })
 
-  // Initial call to animate elements on page load
-  animateElements();
+    // Subscribe Section Timelines
+   
+    
+
+        const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+lenis.on('scroll', ScrollTrigger.update)
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
+
+gsap.ticker.lagSmoothing(0)
 </script>
         
         <!--=============== SWIPER JS ===============-->
