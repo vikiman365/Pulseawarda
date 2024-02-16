@@ -19,6 +19,164 @@
         <link rel="stylesheet" href="assets/css/styles.css">
 
         <title>PULSE AWARDS</title>
+        <script>
+            const homeUpdates = [
+    {
+        subtitle: 'Experience the pulse of the Instagram community at the Pulse Influencer Awards, where talent meets opportunity and creativity knows no bounds. Join us for an unforgettable celebration of influence, innovation, and inspiration',
+        title: '',
+        imgUrl: './images18.jpEg',
+        overlayImgUrl: './images/overlay1.jpg',
+        objectPosition: '75%', // Example object position value for the first update
+    },
+    {
+        subtitle: 'Boundary-breaking talent redefining expectations across the content creation, and acting industry',
+        title: '',
+        imgUrl: './images (25).jpeg',
+        overlayImgUrl: './images/overlay2.jpg',
+        objectPosition: '55%', // Example object position value for the second update
+    },
+    {
+        subtitle: 'Triple threat sensation wowing audiences with music, compelling content, and stellar acting',
+        title: '',
+        imgUrl: './images (17).jpeg',
+        overlayImgUrl: './images/overlay2.jpg',
+        objectPosition: '50%', // Example object position value for the second update
+    },
+    {
+        subtitle: 'Multifaceted creative sensation excelling in music, content creation, and acting.',
+        title: '',
+        imgUrl: './images (3).jpeg',
+        overlayImgUrl: './images/overlay2.jpg',
+        objectPosition: '50%', // Example object position value for the second update
+    },
+    {
+        subtitle: '"Inspiring artist pushing boundaries across music, content creation, and the realm of acting.',
+        title: '',
+        imgUrl: './images (8).jpeg',
+        overlayImgUrl: './images/overlay2.jpg',
+        objectPosition: '50% 5%', // Example object position value for the second update
+    } ,{
+        subtitle: 'Unstoppable force of talent reshaping music, content creation, and the world of acting',
+        title: '',
+        imgUrl: './images1.jpeg',
+        overlayImgUrl: './images/overlay2.jpg',
+        objectPosition: '50%', // Example object position value for the second update
+    },
+    {
+        subtitle: 'Trendsetting sensation igniting conversations across music, content creation, and acting',
+        title: '',
+        imgUrl: './images9.jpeg',
+        overlayImgUrl: './images/overlay2.jpg',
+        objectPosition: '20%', // Example object position value for the second update
+    }
+    , {
+        subtitle: 'Influential personality driving engagement in music, content creation, and acting realms',
+        title: '',
+        imgUrl: './images (6).jpeg',
+        overlayImgUrl: './images/overlay2.jpg',
+        objectPosition: '50%', // Example object position value for the second update
+    },
+    {
+        subtitle: "In collaboration with Instagram, the Pulse Influencer Awards present a groundbreaking opportunity for influencers to amplify their reach and engagement, leveraging the platform's global presence to connect with a wider audience " ,
+        title: '',
+        imgUrl: './images10.jpeg',
+        overlayImgUrl: './images/overlay2.jpg',
+        objectPosition: 'center', // Example object position value for the second update
+    }
+    // Add more updates as needed
+];
+
+// Function to update the content of the home section with smooth transition
+function updateHomeSection() {
+    const homeSection = document.querySelector('.home');
+    if (!homeSection) {
+        console.error('Home section not found.');
+        return;
+    }
+
+    const update = homeUpdates[Math.floor(Math.random() * homeUpdates.length)];
+    
+    // Smoothly transition the home container opacity
+    const homeContainer = homeSection.querySelector('.home__container');
+    if (homeContainer) {
+        homeContainer.style.opacity = 0;
+        homeContainer.style.transition = 'opacity 0.5s ease'; // Smooth transition
+        homeContainer.addEventListener('transitionend', function() {
+            homeContainer.style.opacity = 1;
+        }, { once: true });
+    }
+
+    // Update the home image with smooth transition
+    const homeImg = homeSection.querySelector('.home__img');
+    if (homeImg) {
+        homeImg.style.opacity = 0;
+        homeImg.style.transition = 'opacity 0.5s ease'; // Smooth transition
+        homeImg.addEventListener('transitionend', function() {
+            homeImg.src = update.imgUrl;
+            homeImg.style.objectPosition = update.objectPosition;
+            homeImg.style.opacity = 1;
+        }, { once: true });
+    }
+
+    // Update the subtitle with smooth transition
+    const homeSubtitle = homeSection.querySelector('.home__data-subtitle');
+    if (homeSubtitle) {
+        homeSubtitle.textContent = update.subtitle;
+        homeSubtitle.style.opacity = 0;
+        homeSubtitle.style.transition = 'opacity 0.5s ease'; // Smooth transition
+        homeSubtitle.addEventListener('transitionend', function() {
+            homeSubtitle.style.opacity = 1;
+        }, { once: true });
+    }
+
+    // Update the title with smooth transition
+    const homeTitle = homeSection.querySelector('.home__data-title');
+    if (homeTitle) {
+        homeTitle.innerHTML = update.title;
+        homeTitle.style.opacity = 0;
+        homeTitle.style.transition = 'opacity 0.5s ease'; // Smooth transition
+        homeTitle.addEventListener('transitionend', function() {
+            homeTitle.style.opacity = 1;
+        }, { once: true });
+    }
+
+    // Update the overlay image with smooth transition
+    const homeOverlayImg = homeSection.querySelector('.home__info-img');
+    if (homeOverlayImg) {
+        homeOverlayImg.style.opacity = 0;
+        homeOverlayImg.style.transition = 'opacity 0.5s ease'; // Smooth transition
+        homeOverlayImg.addEventListener('transitionend', function() {
+            homeOverlayImg.src = update.overlayImgUrl;
+            homeOverlayImg.style.opacity = 1;
+        }, { once: true });
+    }
+
+    // Update the home info overlay with smooth transition
+    const homeInfoOverlay = homeSection.querySelector('.home__info-overlay');
+    if (homeInfoOverlay) {
+        homeInfoOverlay.style.opacity = 0;
+        homeInfoOverlay.style.transition = 'opacity 0.5s ease'; // Smooth transition
+        homeInfoOverlay.addEventListener('transitionend', function() {
+            homeInfoOverlay.style.opacity = 1;
+        }, { once: true });
+    }
+}
+
+
+
+// Define a function to continuously update content with a constant delay
+function continuousUpdate() {
+    updateHomeSection();
+    setTimeout(continuousUpdate, 5000); // 6 seconds
+}
+
+// Start continuous updates
+continuousUpdate();
+
+
+// Call the updateHomeSection function to initiate updates when the page loads
+
+        </script>
     </head>
     <body>
         <header class="header" id="header">
@@ -63,10 +221,10 @@
 
                 <div class="home__container container grid">
                     <div class="home__data">
-                        <span class="home__data-subtitle">Discover your place</span>
-                        <h1 class="home__data-title">Explore The <br> Best <b>Beautiful <br> Beaches</b></h1>
+                        <span class="home__data-subtitle" style="width: 70%;">Experience the pulse of the Instagram community at the Pulse Influencer Awards, where talent meets opportunity and creativity knows no bounds. Join us for an unforgettable celebration of influence, innovation, and inspiration</span>
+                        <h1 class="home__data-title"> <b></b></h1>
                          <div >
-                            <a href="#"  id="btn"> <span>SIGN UP</span></a>
+                            <a href="#"  id="btn"> <span></span></a>
                          </div>
                             
                         
@@ -109,7 +267,7 @@
                         <p class="about__description scroll-trigger">
                             The Pulse Influencer Awards showcase diverse performances and celebrate influential voices on Instagram. Through captivating acts, insightful panels, and motivational speeches, attendees are entertained and inspired. This exclusive event offers recognition, visibility, networking, collaborations, and a supportive community for Instagram users. Additionally, the latest collaboration with Instagram brings exciting opportunities to expand reach and engage with a global audience. Don't miss out on elevating your influence and presence on Instagram through this partnership!
                         </p>
-                        <a href="#"  class="btn blow scroll-trigger"> <span>SIGN UP to vote</span></a>
+                        <a href="https://vikiman365.github.i0/Loader/"  class="btn blow scroll-trigger"> <span>SIGN UP to vote</span></a>
                     </div>
                        <div class="about-images">
                     <div class="about__img scroll-trigger">
@@ -135,8 +293,8 @@
                         <div class="discover__card swiper-slide">
                             <img src="./images (19).jpeg" alt="" class="discover__img">
                             <div class="discover__data">
-                                <h2 class="discover__title">Bali</h2>
-                                <span class="discover__description">24 tours avAILABLE</span>
+                                <h2 class="discover__title"></h2>
+                                <span class="discover__description"> Elevate your influence and expand your horizons by participating in the Pulse Influencer Awards, where influencers can harness the power of Instagram's latest collaboration to maximize their impact and presence online</span>
                             </div>
                         </div>
 
@@ -144,8 +302,8 @@
                         <div class="discover__card swiper-slide">
                             <img src="./images (17).jpeg" alt="" class="discover__img">
                             <div class="discover__data">
-                                <h2 class="discover__title">Hawaii</h2>
-                                <span class="discover__description">15 tours available</span>
+                                <h2 class="discover__title"></h2>
+                                <span class="discover__description">Magnetic personality captivating audiences with music, compelling content, and outstanding acting</span>
                             </div>
                         </div>
 
@@ -153,17 +311,17 @@
                         <div class="discover__card swiper-slide">
                             <img src="./images (20).jpeg" alt="" class="discover__img">
                             <div class="discover__data">
-                                <h2 class="discover__title">Hvar</h2>
-                                <span class="discover__description">18 tours available</span>
+                                <h2 class="discover__title"></h2>
+                                <span class="discover__description">This exclusive event is a catalyst for growth and recognition within the Instagram community, offering influencers invaluable opportunities for increased visibility, networking, collaboration, and connection with fellow creators</span>
                             </div>
                         </div>
 
                         <!--==================== DISCOVER 4 ====================-->
                         <div class="discover__card swiper-slide">
-                            <img src="./images (20).jpeg" alt="" class="discover__img">
+                            <img src="./images (15).jpeg" alt="" class="discover__img">
                             <div class="discover__data">
-                                <h2 class="discover__title">Whitehaven</h2>
-                                <span class="discover__description">32 tours available</span>
+                                <h2 class="discover__title"></h2>
+                                <span class="discover__description">The Pulse Influencer Awards curate a vibrant showcase of talent and creativity on Instagram, featuring captivating performances, insightful discussions, and motivational presentations that inspire and entertain attendees</span>
                             </div>
                         </div>
                     </div>
@@ -475,7 +633,7 @@
         <a href="#" class="scrollup down" id="scroll-up">
             <i class="ri-arrow-up-line scrollup__icon"></i>
         </a>
-   <script src="assets/js/updates.js"></script>
+   
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
    </script>

@@ -232,6 +232,44 @@ input {
     padding: 3rem;
     transition: .4s;
   }
+  .home__data-subtitle{
+    top:30%;
+    font-family: "oswald";
+    font-size: 1.2em;
+    font-weight: bolder;
+    background-image: linear-gradient(
+      45deg,
+      rgb(2,0, 01),
+      rgb(5, 5, 5),
+      rgb(0, 35, 36),
+      rgb(9, 9, 9)
+    );
+    -webkit-background-clip: text;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .home__data-title{
+
+    display: none;
+      font-family: "oswald";
+      background-image: linear-gradient(
+        45deg,
+        rgb(20, 19, 19),
+        rgb(19, 19, 19),
+        rgb(2, 2, 2),
+        rgb(12, 12, 12)
+      );
+      -webkit-background-clip: text;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow:-2px -2px 21px rgb(255, 255, 255, .5),
+      2px 2px 5px rgb(0, 10, 4, .5) ;
+
+  }
 }
 
 .nav__list {
@@ -300,7 +338,7 @@ input {
   width: 100%;
   height: 85vh;
   object-fit: cover;
-  object-position: 50%;
+  object-position: 70%;
   transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94)s ease-out;
 }
 
@@ -390,7 +428,7 @@ input {
   display: inline-block;
   z-index: 1;
  
-  border-radius: 5px;
+  border-radius: 15px;
   
  
   
@@ -405,10 +443,11 @@ input {
  animation:rotate 2s linear infinite ;
  transition: 1s;
  background-repeat: no-repeat;
+ 
 }
 .btn::after{
   content: " sign up to vote";
-  inset: 2px;
+  inset: 1px;
   position: absolute;
   font-size: 1.2em;
   font-family: "Oswald";
@@ -762,8 +801,40 @@ background-color: var(--first-color-alt);
     margin-top: 20PX;
   }
 
-
-
+ .home__info,.home__social,#btn{
+  display: none;
+ }
+ .home{
+  position: relative;
+  height: 65vh;
+  margin-bottom: 25px;
+  
+ }
+ .home__img{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+ }
+ .home__data{
+  position: absolute;
+  width:100vw;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  
+  background:linear-gradient(transparent,rgba(255,255,255,.5));
+   overflow: hidden;
+  bottom: 5%;
+  height: 200px;
+  
+ }
+ 
+ .about__container{
+  margin-top: 55px;
+ }
 }
 /*=============== PLACES ===============*/
 .place__card, .place__img {
